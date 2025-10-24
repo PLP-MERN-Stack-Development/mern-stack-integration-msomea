@@ -3,8 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
-import postRoutes from "./routes/postRoutes"
-import categoryRoutes from "./routes/categoryRoutes"
+import postRoutes from "./routes/postRoutes.js"
+import categoryRoutes from "./routes/categoryRoutes.js"
+import { errorHandler } from "./errorhandler.js";
 
 dotenv.config();
 const app = express();
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(errorHandler);
 
 // Connect to MongoDB
 mongoose
