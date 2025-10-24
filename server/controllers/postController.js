@@ -33,6 +33,7 @@ export const getPostById = async (req, res, next) => {
 // CREATE post (protected)
 export const createPost = async (req, res, next) => {
   try {
+    if (!req.user) return res.status(401).json({ message: "Unauthorized" });
     const { title, content, category, tags, excerpt } = req.body;
 
     const catExists = await Category.findById(category);
@@ -46,7 +47,7 @@ export const createPost = async (req, res, next) => {
       excerpt,
       author: req.user._id,
     });
-
+    await post.save(); 
     res.status(201).json(post);
   } catch (err) {
     next(err);

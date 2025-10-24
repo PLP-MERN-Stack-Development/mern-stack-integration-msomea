@@ -1,3 +1,21 @@
+/* Full Height */
+html, body, #root {
+  height: 100%;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+.main-content {
+  flex: 1; /* take remaining space between navbar and footer */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
 /* Reset & base */
 * {
   box-sizing: border-box;

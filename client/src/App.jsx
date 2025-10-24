@@ -13,18 +13,20 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/posts/:id" element={<PostPage />} />
-            <Route path="/create" element={<CreatePost />} />
-            <Route path="/create-category" element={<CategoryCreate />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
+        <div className="app-wrapper">
+          <Navbar />
+          <main className="main-content container">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/posts/:id" element={<PostPage />} />
+              <Route path="/create" element={<CreatePost />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/create-category" element={<CategoryCreate />} />
+            </Routes>
+          </main>
+          <Footer />
         </div>
-        <Footer />
       </Router>
     </AuthProvider>
   );
